@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Wi-Fi Health Check | Vodafone Solutions</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f4f4f4; }
+        .card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; }
+        h1 { color: #e60000; margin-bottom: 10px; }
+        .question { display: none; margin-top: 20px; }
+        .question.active { display: block; }
+        button { background: #e60000; color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-size: 16px; margin: 10px 5px; transition: background 0.3s; }
+        button:hover { background: #bd0000; }
+        #results { display: none; }
+        .score { font-size: 48px; font-weight: bold; color: #e60000; margin: 20px 0; }
+        .cta-btn { display: inline-block; background: #e60000; color: white; text-decoration: none; padding: 15px 30px; border-radius: 8px; font-weight: bold; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div id="quiz">
+        <h1>Wi-Fi Health Check</h1>
+        <p>Find out if your home connection is holding you back.</p>
+        
+        <div class="question active" id="q1">
+            <p>1. How often does your video buffer or drop during work or streaming?</p>
+            <button onclick="next(0)">Rarely</button>
+            <button onclick="next(1)">Daily</button>
+            <button onclick="next(2)">All the time</button>
+        </div>
+
+        <div class="question" id="q2">
+            <p>2. Do you have "dead zones" in certain rooms?</p>
+            <button onclick="next(0)">No, it's fine</button>
+            <button onclick="next(2)">Yes, in some rooms</button>
+        </div>
+
+        <div class="question" id="q3">
+            <p>3. How many devices are usually connected at once?</p>
+            <button onclick="next(0)">1-3</button>
+            <button onclick="next(1)">4-7</button>
+            <button onclick="next(2)">8+</button>
+        </div>
+
+        <div class="question" id="q4">
+            <p>4. Would a 4 hour internet outage disrupt your work life?</p>
+            <button onclick="next(0)">Not really</button>
+            <button onclick="next(2)">Massively</button>
+        </div>
+
+        <div class="question" id="q5">
+            <p>5. Are you getting the speeds you actually pay for?</p>
+            <button onclick="next(0)">Yes</button>
+            <button onclick="next(2)">Unsure/No</button>
+        </div>
+    </div>
+
+    <div id="results">
+        <h2>Your Connection Score</h2>
+        <div class="score" id="scoreValue">0/10</div>
+        <p id="feedback"></p>
+        <p>Based on your results, <strong>Vodafone Pro II Broadband</strong> with its 4G back-up and WiFi 7 technology is your best fix.</p>
+        <a href="https://YOUR-AWIN-VODAFONE-LINK-HERE" class="cta-btn">Check Availability at My Address</a>
+    </div>
+</div>
+
+<script>
+    let totalScore = 0;
+    let currentStep = 1;
+    const totalSteps = 5;
+
+    function next(points) {
+        totalScore += points;
+        document.getElementById(`q${currentStep}`).classList.remove('active');
+        currentStep++;
+        
+        if (currentStep <= totalSteps) {
+            document.getElementById(`q${currentStep}`).classList.add('active');
+        } else {
+            showResults();
+        }
+    }
+
+    function showResults() {
+        document.getElementById('quiz').style.display = 'none';
+        document.getElementById('results').style.display = 'block';
+        document.getElementById('scoreValue').innerText = `${10 - totalScore}/10`;
+        
+        let message = totalScore > 5 
+            ? "Your current Wi-Fi is critical. You're losing productivity and speed every day."
+            : "Your Wi-Fi is okay, but you could benefit from more reliable coverage.";
+        document.getElementById('feedback').innerText = message;
+    }
+</script>
+
+</body>
+</html>
