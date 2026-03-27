@@ -3,41 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Why Your Home Wi-Fi is Failing | Broadband Guide 2026</title>
+    <title>Home Wi-Fi Health Check | Vodafone Solutions</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.8; color: #333; max-width: 800px; margin: 0 auto; padding: 40px 20px; background-color: #fff; }
-        h1 { color: #e60000; font-size: 2.5em; line-height: 1.2; }
-        h2 { color: #333; margin-top: 30px; border-bottom: 2px solid #e60000; display: inline-block; }
-        .intro { font-size: 1.2em; color: #555; font-style: italic; }
-        .cta-box { background: #f4f4f4; padding: 25px; border-radius: 10px; border-left: 5px solid #e60000; margin: 30px 0; }
-        .cta-link { color: #e60000; font-weight: bold; text-decoration: none; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f4f4f4; }
+        .card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; }
+        h1 { color: #e60000; margin-bottom: 10px; }
+        .question { display: none; margin-top: 20px; }
+        .question.active { display: block; }
+        button { background: #e60000; color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-size: 16px; margin: 10px 5px; transition: background 0.3s; }
+        button:hover { background: #bd0000; }
+        #results { display: none; }
+        .score { font-size: 48px; font-weight: bold; color: #e60000; margin: 20px 0; }
+        .cta-btn { display: inline-block; background: #e60000; color: white; text-decoration: none; padding: 15px 30px; border-radius: 8px; font-weight: bold; margin-top: 20px; }
+        .seo-section { margin-top: 40px; text-align: left; border-top: 1px solid #ddd; padding-top: 20px; }
+        .guide-link { color: #333; text-decoration: none; display: block; margin-bottom: 15px; padding: 15px; background: #fafafa; border-radius: 5px; border-left: 4px solid #e60000; }
     </style>
 </head>
 <body>
-    <a href="index.html" style="text-decoration: none; color: #666;">← Back to Health Check</a>
-    
-    <h1>Why Your Home Wi-Fi is Failing: The 2026 Guide to Reliable Connectivity</h1>
-    
-    <p class="intro">In an era where our homes have become offices, classrooms, and cinemas, a "buffering" wheel is more than an annoyance—it is a productivity killer.</p>
 
-    <p>If you have ever found yourself hovering near your router just to finish a Zoom call, or if your Netflix stream drops to grainy 480p the moment someone else turns on a gaming console, you aren't alone. Most UK households are still running on hardware and connections designed for the needs of 2018. But as we move through 2026, the demands on our bandwidth have tripled.</p>
+<div class="card">
+    <div id="quiz">
+        <h1>Wi-Fi Health Check</h1>
+        <p>Find out if your home connection is holding you back.</p>
+        
+        <div class="question active" id="q1">
+            <p>1. How often does your video buffer or drop during work or streaming?</p>
+            <button onclick="next(0)">Rarely</button>
+            <button onclick="next(1)">Daily</button>
+            <button onclick="next(2)">All the time</button>
+        </div>
 
-    <h2>The "Invisible Walls" Problem</h2>
-    <p>The most common cause of Wi-Fi failure isn't actually the speed entering your house; it is the "dead zones" created by your home's architecture. Traditional routers struggle to penetrate brick walls and handle interference from other household electronics. This is where modern Mesh technology, like that found in the <strong>Vodafone Pro II</strong>, changes the game. By using dedicated nodes, you create a blanket of signal that flows around obstacles rather than trying to punch through them.</p>
+        <div class="question" id="q2">
+            <p>2. Do you have "dead zones" in certain rooms?</p>
+            <button onclick="next(0)">No, it's fine</button>
+            <button onclick="next(2)">Yes, in some rooms</button>
+        </div>
 
-    <div class="cta-box">
-        <strong>Stop Guessing.</strong> Use our <a href="index.html" class="cta-link">Wi-Fi Health Check Quiz</a> to see if your hardware is the bottleneck.
+        <div class="question" id="q3">
+            <p>3. How many devices are usually connected at once?</p>
+            <button onclick="next(0)">1-3</button>
+            <button onclick="next(1)">4-7</button>
+            <button onclick="next(2)">8+</button>
+        </div>
+
+        <div class="question" id="q4">
+            <p>4. Would a 4 hour internet outage disrupt your work life?</p>
+            <button onclick="next(0)">Not really</button>
+            <button onclick="next(2)">Massively</button>
+        </div>
+
+        <div class="question" id="q5">
+            <p>5. Are you getting the speeds you actually pay for?</p>
+            <button onclick="next(0)">Yes</button>
+            <button onclick="next(2)">Unsure/No</button>
+        </div>
     </div>
 
-    <h2>Why WiFi 7 is the New Standard</h2>
-    <p>You might have heard of WiFi 6, but <strong>WiFi 7</strong> is the real leap forward for 2026. It offers significantly lower latency, which is crucial for cloud gaming and jitter-free video conferencing. More importantly, it handles "multi-device congestion" better than any previous generation. When you have smart fridges, doorbells, phones, and laptops all fighting for the same airwaves, WiFi 7 organizes that traffic to ensure your work laptop always gets priority.</p>
+    <div id="results">
+        <h2>Your Connection Score</h2>
+        <div class="score" id="scoreValue">0/10</div>
+        <p id="feedback"></p>
+        <p>Based on your results, <strong>Vodafone Pro II Broadband</strong> with WiFi 7 technology is your best fix.</p>
+        <a href="https://YOUR-AWIN-VODAFONE-LINK-HERE" class="cta-btn">Check Availability at My Address</a>
+    </div>
 
-    <h2>The 4G Back-up Revolution</h2>
-    <p>We have all experienced that moment of dread when the broadband goes down during a critical deadline. In the past, you'd have to scramble to set up a mobile hotspot. Premium services now include <strong>unbreakable broadband</strong>. This means if the physical line in the street is damaged, your router automatically switches to a 4G or 5G mobile signal within seconds. You stay online, your meeting stays live, and your productivity stays intact.</p>
+    <div class="seo-section">
+        <h3>Expert Broadband Guides</h3>
+        <p><strong>Stop Guessing.</strong> Use our <a href="#quiz" onclick="location.reload()" style="color: #e60000; font-weight: bold;">Wi-Fi Health Check Quiz</a> to see if your hardware is the bottleneck.</p>
+        <a href="blog.html" class="guide-link">
+            <strong>Why Your Home Wi-Fi is Failing</strong>
+            <p>Discover the "Invisible Walls" problem and how to fix slow speeds in UK homes. Read more →</p>
+        </a>
+    </div>
+</div>
 
-    <h2>Is it Time to Switch?</h2>
-    <p>If your score on our Health Check was low, it’s a sign that your current provider isn't keeping up with your lifestyle. Switching to a provider that offers Full Fibre (FTTP) combined with the latest router technology isn't just a luxury—it's a home office essential. Vodafone’s latest offerings are built specifically for these high-demand environments, ensuring that "buffering" becomes a memory of the past.</p>
+<script>
+    let totalScore = 0;
+    let currentStep = 1;
+    const totalSteps = 5;
 
-    <p><em>Ready to upgrade your home experience? Don't settle for slow speeds. Check your local availability today.</em></p>
+    function next(points) {
+        totalScore += points;
+        document.getElementById(`q${currentStep}`).classList.remove('active');
+        currentStep++;
+        if (currentStep <= totalSteps) {
+            document.getElementById(`q${currentStep}`).classList.add('active');
+        } else {
+            showResults();
+        }
+    }
+
+    function showResults() {
+        document.getElementById('quiz').style.display = 'none';
+        document.getElementById('results').style.display = 'block';
+        document.getElementById('scoreValue').innerText = `${10 - totalScore}/10`;
+        let message = totalScore > 5 
+            ? "Your current Wi-Fi is critical. You're losing productivity and speed every day."
+            : "Your Wi-Fi is okay, but you could benefit from more reliable coverage.";
+        document.getElementById('feedback').innerText = message;
+    }
+</script>
+
 </body>
 </html>
