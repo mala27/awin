@@ -1,2 +1,2 @@
 # awin
-Central hub for Awin-integrated affiliate reviews and product comparison landing pages
+Central hub for integrated affiliate reviews and product comparison landing pages
